@@ -60,11 +60,6 @@ else:
     encode = None
     st.info("📤 Please upload or capture an image showing the wildfire scene.")
 
-# if file_upload:
-#     encode = get_file(file_upload)
-# else:
-#     encode = None
-
 
 
 st.subheader("🌦️ Wildfire Environmental Conditions")
@@ -103,26 +98,6 @@ wildfire_context = (
 
 
 submit=st.button("submit the image")
-
-# --- Fire Detection & Analysis Prompt ---
-# prompt = """
-# You are an advanced AI system trained for wildfire detection and environmental impact assessment.
-# Your task is to analyze the uploaded image and determine:
-# 1. Whether fire or no fire is present.
-# 2. If fire is detected:
-#    - Estimate the intensity and speed of fire spread.
-#    - Estimate the amount of CO₂ emissions based on visual cues (e.g., smoke density, area affected).
-#    - Estimate the number of wildfire sources visible.
-#    - Suggest appropriate safety and wildfire prevention precautions.
-# 3. If no fire is detected, simply respond with "No Fire Detected" and provide brief environmental safety recommendations.
-
-# Guidelines:
-# - Base your analysis only on the visible image content.
-# - Use clear, concise, and factual language.
-# - Provide numerical or qualitative estimates (e.g., "Moderate CO₂ emission", "Rapid spread likely").
-# - Maintain a professional and informative tone.
-# - Avoid unnecessary explanations — focus on detection, estimation, and prevention advice.
-# """
 
 prompt = f"""
 You are an advanced AI system trained for wildfire detection and environmental impact assessment.
@@ -184,4 +159,5 @@ if submit:
             st.write(response)
 
         except Exception as e:
+
             st.error(f"⚠️ Error during analysis: {str(e)}")
